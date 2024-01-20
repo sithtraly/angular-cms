@@ -8,12 +8,13 @@ import { TeacherComponent } from './components/teacher/teacher.component';
 import { StudentComponent } from './components/student/student.component';
 import { ReportComponent } from './components/report/report.component';
 import { ConfigComponent } from './components/config/config.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
-    path: '', component: LayoutComponent,
+    path: '', component: LayoutComponent, canActivate: [AuthGuard],
     children: [
       { path: 'home', component: HomeComponent },
       { path: 'teacher', component: TeacherComponent },

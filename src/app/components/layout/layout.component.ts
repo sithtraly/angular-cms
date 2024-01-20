@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterService } from '../../services/router.service';
+import { AuthService } from '../../guards/auth.service';
 
 @Component({
   selector: 'app-layout',
@@ -8,6 +9,7 @@ import { RouterService } from '../../services/router.service';
 })
 export class LayoutComponent {
   constructor(
-    public routerService: RouterService
+    public routerService: RouterService,
+    public authService: AuthService
   ) { }
 }
