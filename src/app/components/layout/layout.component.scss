@@ -1,0 +1,31 @@
+.example-container {
+  height: calc(100vh - 84px);
+  width: 100%;
+
+  ::ng-deep.mat-drawer-backdrop {
+    opacity: 0.5;
+  }
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.mat-mdc-list-item {
+  padding: 8px 36px;
+  cursor: pointer !important;
+  &:hover {
+    outline: 1px solid gray;
+    background: #eeeeee;
+  }
+  &.active-menu {
+    background: #f1e8ff;
+  }
+  mat-icon {
+    margin-right: 8px;
+  }
+}
