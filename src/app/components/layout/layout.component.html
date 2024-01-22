@@ -6,8 +6,8 @@
 
   <span class="example-spacer"></span>
 
-  <button class="btn">
-    <mat-icon class="text-white mx-2" [matMenuTriggerFor]="language">translate</mat-icon>
+  <button class="btn" [matMenuTriggerFor]="language">
+    <mat-icon class="text-white">translate</mat-icon>
     <mat-menu #language="matMenu">
       <button mat-menu-item (click)="translateTo('kh')">
         <span>{{'kh' | translate}}</span>
@@ -16,7 +16,9 @@
         <span>{{'en' | translate}}</span>
       </button>
     </mat-menu>
-    <mat-icon class="text-white ms-2" [matMenuTriggerFor]="menu">more_vert</mat-icon>
+  </button>
+  <button class="btn" [matMenuTriggerFor]="menu">
+    <mat-icon class="text-white">more_vert</mat-icon>
     <mat-menu #menu="matMenu">
       <button mat-menu-item>
         <mat-icon>settings</mat-icon>
@@ -67,5 +69,5 @@
 
 
 <footer class="bg-secondary">
-  <p class="m-0 p-0 text-center text-white">Copyright &copy; 2024. NIE</p>
+  <p class="m-0 p-0 text-center text-white">NIE Copyright &copy; 2024, Alright reserve</p>
 </footer>

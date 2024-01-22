@@ -18,7 +18,7 @@ export class CustomTraslateService {
     return this.traslateService.currentLang
   }
 
-  getTranslate(key: string) {
-    this.traslateService.get(key)
+  getTranslate(key: string): any {
+    return this.traslateService.instant(key)
   }
 }

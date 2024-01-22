@@ -6,6 +6,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { isPlatformBrowser } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
+import { CustomTraslateService } from '../services/custom.traslate.service';
 
 interface UserProfile {
   username: string
@@ -22,7 +23,8 @@ export class AuthService {
     private httpService: HttpService,
     private snackbar: SnackbarService,
     private http: HttpClient,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private translate: CustomTraslateService
   ) { }
 
   isAuthenticatedUser(): boolean {
@@ -60,7 +62,7 @@ export class AuthService {
       this.routerService.routeTo('/')
     }, (err: HttpErrorResponse) => {
       if (err.status == 401) {
-        this.snackbar.error('Username or Password incorrect')
+        this.snackbar.error(this.translate.getTranslate('username_or_password_incorrect'), 'close')
       }
     })
   }

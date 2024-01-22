@@ -1,5 +1,5 @@
 {
-  "kh": "Khmer",
+  "kh": "ខ្មែរ",
   "en": "English",
   "dashboard": "Dashboard",
   "teacher": "Teacher",
@@ -12,5 +12,7 @@
   "about": "About",
   "username": "Username",
   "password": "Password",
-  "menu": "Menu"
+  "menu": "Menu",
+  "close": "Close",
+  "username_or_password_incorrect": "Username or Password incorrect"
 }

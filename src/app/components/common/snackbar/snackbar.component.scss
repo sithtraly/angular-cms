@@ -1,0 +1,38 @@
+@keyframes scaller {
+  from {
+    transform: scale(2);
+  }
+
+  50% {
+    transform: scale(1.7);
+  }
+
+  to {
+    transform: scale(2);
+  }
+}
+
+mat-icon {
+  transform: scale(2);
+  margin-right: 10px;
+  color: var(--bs-primary);
+  animation: scaller 1s linear infinite;
+}
+
+.error {
+  mat-icon {
+    color: var(--bs-danger);
+  }
+}
+
+.info {
+  mat-icon {
+    color: var(--bs-info);
+  }
+}
+
+.warning {
+  mat-icon {
+    color: var(--bs-warning);
+  }
+}

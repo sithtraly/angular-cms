@@ -48,13 +48,15 @@ import { TeacherComponent } from './components/teacher/teacher.component';
 import { StudentComponent } from './components/student/student.component';
 import { ReportComponent } from './components/report/report.component';
 import { ConfigComponent } from './components/config/config.component';
-import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from './guards/auth.guard';
 import { AuthInterceptor } from './guards/auth.interceptor';
 import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { DialogComponent } from './components/common/dialog/dialog.component';
+import { SnackbarComponent } from './components/common/snackbar/snackbar.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -71,7 +73,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     StudentComponent,
     ReportComponent,
     ConfigComponent,
-    UnauthorizedComponent
+    UnauthorizedComponent,
+    DialogComponent,
+    SnackbarComponent
   ],
   imports: [
     BrowserModule,
@@ -130,6 +134,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       useValue: { duration: 3000 }
     },
     AuthGuard,
+    provideHttpClient(withFetch()),
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

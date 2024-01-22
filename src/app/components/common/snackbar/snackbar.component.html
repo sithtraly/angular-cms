@@ -1,0 +1,9 @@
+<div class="d-flex justify-content-between {{data.cssClass}}">
+  <span class="example-pizza-party" matSnackBarLabel>
+    <mat-icon *ngIf="data.icon">{{data.icon}}</mat-icon>
+    {{data.message}}
+  </span>
+  <span matSnackBarActions>
+    <button mat-button matSnackBarAction (click)="snackBarRef.dismissWithAction()">{{data.actionText}}</button>
+  </span>
+</div>
