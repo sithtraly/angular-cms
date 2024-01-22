@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpService } from '../../services/http.service';
+import { CustomTraslateService } from '../../services/custom.traslate.service';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +9,15 @@ import { HttpService } from '../../services/http.service';
 })
 export class HomeComponent {
   constructor(
-    private httpService: HttpService
+    private httpService: HttpService,
+    private translate: CustomTraslateService
   ) { }
 
   onClick() {
     this.httpService.get('/users').subscribe((res: any) => {}, (err: any) => {})
+  }
+
+  changeLang(lang: string) {
+    this.translate.useLang(lang)
   }
 }

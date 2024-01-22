@@ -1,0 +1,16 @@
+{
+  "kh": "Khmer",
+  "en": "English",
+  "dashboard": "Dashboard",
+  "teacher": "Teacher",
+  "student": "Student",
+  "report": "Reports",
+  "config": "Config",
+  "login": "Login",
+  "logout": "Logout",
+  "setting": "Setting",
+  "about": "About",
+  "username": "Username",
+  "password": "Password",
+  "menu": "Menu"
+}

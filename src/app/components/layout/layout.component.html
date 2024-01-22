@@ -1,25 +1,34 @@
 <mat-toolbar color="primary">
-  <button mat-icon-button class="example-icon p-0" (click)="sideMneu.toggle()">
+  <button mat-icon-button class="example-icon p-0 me-2" (click)="sideMneu.toggle()">
     <mat-icon>menu</mat-icon>
   </button>
-  <img src="/assets/images/nie-logo.png" alt="NIE Loog" width="48">
+  <img src="/assets/images/nie-logo.png" alt="NIE Loog" width="48" class="mx-2">
 
   <span class="example-spacer"></span>
 
   <button class="btn">
-    <mat-icon class="text-white" [matMenuTriggerFor]="menu">more_vert</mat-icon>
+    <mat-icon class="text-white mx-2" [matMenuTriggerFor]="language">translate</mat-icon>
+    <mat-menu #language="matMenu">
+      <button mat-menu-item (click)="translateTo('kh')">
+        <span>{{'kh' | translate}}</span>
+      </button>
+      <button mat-menu-item (click)="translateTo('en')">
+        <span>{{'en' | translate}}</span>
+      </button>
+    </mat-menu>
+    <mat-icon class="text-white ms-2" [matMenuTriggerFor]="menu">more_vert</mat-icon>
     <mat-menu #menu="matMenu">
       <button mat-menu-item>
         <mat-icon>settings</mat-icon>
-        <span>Settings</span>
+        <span>{{'setting' | translate}}</span>
       </button>
       <button mat-menu-item>
         <mat-icon>info</mat-icon>
-        <span>About</span>
+        <span>{{'about' | translate}}</span>
       </button>
       <button mat-menu-item (click)="authService.logout()">
         <mat-icon>logout</mat-icon>
-        <span>Logout</span>
+        <span>{{'logout' | translate}}</span>
       </button>
     </mat-menu>
   </button>
@@ -30,23 +39,23 @@
     <mat-list>
       <mat-list-item (click)="routerService.routeTo('/home');sideMneu.close()" routerLink="/home" routerLinkActive="active-menu">
         <mat-icon>dashboard</mat-icon>
-        <span>Dashboard</span>
+        <span>{{'dashboard' | translate}}</span>
       </mat-list-item>
       <mat-list-item (click)="routerService.routeTo('/teacher');sideMneu.close()" routerLink="/teacher" routerLinkActive="active-menu">
         <mat-icon>group</mat-icon>
-        <span>Teacher</span>
+        <span>{{'teacher' | translate}}</span>
       </mat-list-item>
       <mat-list-item (click)="routerService.routeTo('/student');sideMneu.close()" routerLink="/student" routerLinkActive="active-menu">
         <mat-icon>groups</mat-icon>
-        <span>Student</span>
+        <span>{{'student' | translate}}</span>
       </mat-list-item>
       <mat-list-item (click)="routerService.routeTo('/reports');sideMneu.close()" routerLink="/reports" routerLinkActive="active-menu">
         <mat-icon>description</mat-icon>
-        <span>Reports</span>
+        <span>{{'report' | translate}}</span>
       </mat-list-item>
       <mat-list-item (click)="routerService.routeTo('/config');sideMneu.close()" routerLink="/config" routerLinkActive="active-menu">
         <mat-icon>settings_applications</mat-icon>
-        <span>Config</span>
+        <span>{{'config' | translate}}</span>
       </mat-list-item>
     </mat-list>
   </mat-drawer>
