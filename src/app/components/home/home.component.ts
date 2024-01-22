@@ -10,4 +10,8 @@ export class HomeComponent {
   constructor(
     private httpService: HttpService
   ) { }
+
+  onClick() {
+    this.httpService.get('/users').subscribe((res: any) => {}, (err: any) => {})
+  }
 }

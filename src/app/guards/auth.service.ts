@@ -5,10 +5,17 @@ import { SnackbarService } from '../services/snackbar.service';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { isPlatformBrowser } from '@angular/common';
+import { BehaviorSubject } from 'rxjs';
+
+interface UserProfile {
+  username: string
+  roleId: number
+}
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private isAuthenticate: boolean = false
+  private isAuthenticated: boolean = false
+  private userProfileSubject = new BehaviorSubject<UserProfile | null>(null);
 
   constructor(
     private routerService: RouterService,
@@ -18,12 +25,12 @@ export class AuthService {
     @Inject(PLATFORM_ID) private platformId: Object
   ) { }
 
-  isAuthenticated(): boolean {
+  isAuthenticatedUser(): boolean {
     if (isPlatformBrowser(this.platformId)) {
       const token = localStorage.getItem('token')
-      if (token) this.isAuthenticate = true
+      if (token) this.isAuthenticated = true
     }
-    if (this.isAuthenticate) {
+    if (this.isAuthenticated) {
       return true
     } else {
       this.routerService.routeTo('login')
@@ -45,7 +52,9 @@ export class AuthService {
       const token = res.access_token
       const info = res
       delete info.access_token
-      this.isAuthenticate = true
+      this.isAuthenticated = true
+      const userProfile: UserProfile = { username: info.username, roleId: info.roleId }
+      this.userProfileSubject.next(userProfile)
       localStorage.setItem('token', token)
       localStorage.setItem('info', JSON.stringify(info))
       this.routerService.routeTo('/')
@@ -57,9 +66,14 @@ export class AuthService {
   }
 
   logout() {
-    this.isAuthenticate = false
+    this.isAuthenticated = false
+    this.userProfileSubject.next(null)
     localStorage.removeItem('token')
     localStorage.removeItem('info')
     this.routerService.routeTo('/login')
+  }
+
+  getUserProfile(): UserProfile | null {
+    return this.userProfileSubject.value
   }
 }

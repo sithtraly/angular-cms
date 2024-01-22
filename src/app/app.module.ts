@@ -52,6 +52,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from './guards/auth.guard';
 import { AuthInterceptor } from './guards/auth.interceptor';
+import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { AuthInterceptor } from './guards/auth.interceptor';
     TeacherComponent,
     StudentComponent,
     ReportComponent,
-    ConfigComponent
+    ConfigComponent,
+    UnauthorizedComponent
   ],
   imports: [
     BrowserModule,

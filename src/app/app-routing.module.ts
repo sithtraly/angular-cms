@@ -9,12 +9,14 @@ import { StudentComponent } from './components/student/student.component';
 import { ReportComponent } from './components/report/report.component';
 import { ConfigComponent } from './components/config/config.component';
 import { AuthGuard } from './guards/auth.guard';
+import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
+import { RoleGuardAdmin } from './guards/role.guard';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
-    path: '', component: LayoutComponent, canActivate: [AuthGuard],
+    path: '', component: LayoutComponent, canActivate: [AuthGuard /*, RoleGuardAdmin */],
     children: [
       { path: 'home', component: HomeComponent },
       { path: 'teacher', component: TeacherComponent },
@@ -23,6 +25,7 @@ const routes: Routes = [
       { path: 'config', component: ConfigComponent },
     ]
   },
+  { path: 'unauthorized', component: UnauthorizedComponent },
   { path: '**', component: NotFoundComponent }
 ];
 
