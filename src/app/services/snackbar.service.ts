@@ -30,6 +30,6 @@ export class SnackbarService {
   }
 
   info(message: string, actionText: string = 'OK') {
-    this.snack.openFromComponent(SnackbarComponent, { data: { message, actionText, icon: this.icons.info, cssClass: 'warning' } })
+    this.snack.openFromComponent(SnackbarComponent, { data: { message, actionText, icon: this.icons.info, cssClass: 'info' } })
   }
 }

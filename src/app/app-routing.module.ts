@@ -11,6 +11,7 @@ import { ConfigComponent } from './components/config/config.component';
 import { AuthGuard } from './guards/auth.guard';
 import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
 import { RoleGuardAdmin } from './guards/role.guard';
+import { QrCodeComponent } from './components/qr-code/qr-code.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
       { path: 'teacher', component: TeacherComponent },
       { path: 'student', component: StudentComponent },
       { path: 'reports', component: ReportComponent },
+      { path: 'qrCode', component: QrCodeComponent },
       { path: 'config', component: ConfigComponent },
     ]
   },

@@ -57,6 +57,10 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { DialogComponent } from './components/common/dialog/dialog.component';
 import { SnackbarComponent } from './components/common/snackbar/snackbar.component';
+import { QrCodeComponent } from './components/qr-code/qr-code.component';
+import { ImageDialogComponent } from './components/common/image-dialog/image-dialog.component';
+import { NewQrCodeDialogComponent } from './components/common/new-qr-code-dialog/new-qr-code-dialog.component';
+import { ConfirmDialogComponent } from './components/common/confirm-dialog/confirm-dialog.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -75,7 +79,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     ConfigComponent,
     UnauthorizedComponent,
     DialogComponent,
-    SnackbarComponent
+    SnackbarComponent,
+    QrCodeComponent,
+    ImageDialogComponent,
+    NewQrCodeDialogComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,29 @@
+<div class="p-3">
+  <h2 class="text-center" mat-dialog-title>{{'create' | translate}} {{'newQrCode' | translate}}</h2>
+
+  <mat-dialog-content class="px-0">
+    <form [formGroup]="inputGroup" (submit)="$event.preventDefault()">
+      <mat-form-field class="w-50 pe-2">
+        <mat-label>{{'latitude1' |  translate}}</mat-label>
+        <input type="text" matInput formControlName="lat1" required class="w-100">
+      </mat-form-field>
+      <mat-form-field class="w-50 ps-2">
+        <mat-label>{{'longitude1' |  translate}}</mat-label>
+        <input type="text" matInput formControlName="lon1" required class="w-100">
+      </mat-form-field>
+      <mat-form-field class="w-50 pe-2">
+        <mat-label>{{'latitude2' |  translate}}</mat-label>
+        <input type="text" matInput formControlName="lat2" required class="w-100">
+      </mat-form-field>
+      <mat-form-field class="w-50 ps-2">
+        <mat-label>{{'longitude2' |  translate}}</mat-label>
+        <input type="text" matInput formControlName="lon2" required class="w-100">
+      </mat-form-field>
+    </form>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close color="warn">{{'cancel' | translate}}</button>
+    <button mat-raised-button color="primary" class="ms-2">{{'save' | translate}}</button>
+  </mat-dialog-actions>
+</div>

@@ -1,0 +1,55 @@
+<h2>QR Code List</h2>
+
+<button class="new-floating-button" (click)="onOpenNewDialog()">
+  <mat-icon>add</mat-icon>
+</button>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>
+      {{ 'id' | translate}}
+    </th>
+    <td mat-cell *matCellDef="let el">{{el.id}}</td>
+  </ng-container>
+  <ng-container matColumnDef="latitude1">
+    <th mat-header-cell *matHeaderCellDef>
+      {{ 'latitude1' | translate}}
+    </th>
+    <td mat-cell *matCellDef="let el">{{el.latitude1}}</td>
+  </ng-container>
+  <ng-container matColumnDef="longitude1">
+    <th mat-header-cell *matHeaderCellDef>
+      {{ 'longitude1' | translate}}
+    </th>
+    <td mat-cell *matCellDef="let el">{{el.longitude1}}</td>
+  </ng-container>
+  <ng-container matColumnDef="latitude2">
+    <th mat-header-cell *matHeaderCellDef>
+      {{ 'latitude2' | translate}}
+    </th>
+    <td mat-cell *matCellDef="let el">{{el.latitude2}}</td>
+  </ng-container>
+  <ng-container matColumnDef="longitude2">
+    <th mat-header-cell *matHeaderCellDef>
+      {{ 'longitude2' | translate}}
+    </th>
+    <td mat-cell *matCellDef="let el">{{el.longitude2}}</td>
+  </ng-container>
+  <ng-container matColumnDef="create_date">
+    <th mat-header-cell *matHeaderCellDef>
+      {{ 'create_date' | translate}}
+    </th>
+    <td mat-cell *matCellDef="let el">{{el.create_date}}</td>
+  </ng-container>
+  <ng-container matColumnDef="image">
+    <th mat-header-cell *matHeaderCellDef>
+      {{ 'image' | translate}}
+    </th>
+    <td mat-cell *matCellDef="let el">
+      <img src="{{el.image}}" alt="QR Code" style="width: 50px;" (click)="openImage(el.image)" class="pointer">
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnHeader"></tr>
+  <tr mat-row *matRowDef="let row; columns: columnHeader"></tr>
+</table>
